@@ -151,7 +151,7 @@ public class Recipe extends UGC {
     }
     
     public static String toJsonArrayRecipe(Collection<Recipe> collection) {
-        return new JSONSerializer().exclude("*.class", "*.logger");
+        return new JSONSerializer().exclude("*.class", "*.logger").serialize(collection);
     }
 
     // pulled from Roo file due to bug [ROO-3570]

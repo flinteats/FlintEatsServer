@@ -1,0 +1,49 @@
+<aspectj>
+<aspects>
+<aspect name="com.etshost.msu.entity.ReviewDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.TipIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.UserDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.FoodDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.TipDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.FoodIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.FoodPropertyIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.CommentDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.RecipeDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.RecipeIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.TagIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.TagIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.BadgeDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.ReviewIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.BadgeIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.ReviewDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.UserIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.FoodPropertyIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.RecipeIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.DealDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.MarketIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.MarketDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.TipDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.UserDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.CommentDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.DealIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.TipIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.BadgeDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.CommentIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.DealIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.FoodIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.FoodDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.FoodPropertyDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.UserIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.BadgeIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.TagDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.RecipeDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.MarketIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.DealDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.CommentIntegrationTest_Roo_IntegrationTest"/>
+<aspect name="com.etshost.msu.entity.TagDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="com.etshost.msu.entity.ReviewIntegrationTest_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.FoodPropertyDataOnDemand_Roo_Configurable"/>
+<aspect name="com.etshost.msu.entity.MarketDataOnDemand_Roo_Configurable"/>
+</aspects>
+</aspectj>
+

@@ -18,26 +18,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.etshost.msu.entity.ReviewProperty;
+import com.etshost.msu.entity.Reviewproperty;
 import com.etshost.msu.entity.User;
 import com.etshost.msu.entity.Viewing;
 
 /**
- * Controller for the {@link com.etshost.msu.entity.ReviewProperty} class.
+ * Controller for the {@link com.etshost.msu.entity.Reviewproperty} class.
  */
-@RequestMapping("/ugc/reviewProperties")
+@RequestMapping("/ugc/reviewproperties")
 @RestController
 @Transactional
-public class ReviewPropertyController {
+public class ReviewpropertyController {
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/**
-	 * Creates a new ReviewProperty from the JSON description
-	 * @param reviewProperty	ReviewProperty to create
-	 * @return		ID of created ReviewProperty
+	 * Creates a new Reviewproperty from the JSON description
+	 * @param reviewProperty	Reviewproperty to create
+	 * @return		ID of created Reviewproperty
 	 */
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
-	public String create(@RequestBody ReviewProperty reviewProperty) {
+	public String create(@RequestBody Reviewproperty reviewProperty) {
 		this.logger.debug("landed at /ugc/reviewPropertys/create");
 		
 		reviewProperty.setUsr(User.getLoggedInUser());
@@ -54,7 +54,7 @@ public class ReviewPropertyController {
 	}
 	
 	/**
-	 * Returns JSON list of ReviewPropertys
+	 * Returns JSON list of Reviewpropertys
 	 * @param start			index of first item
 	 * @param length		number of items to return
 	 * @param orderField	field to order results by
@@ -68,21 +68,21 @@ public class ReviewPropertyController {
 			@RequestParam(name = "orderField", required = false) String orderField,
 			@RequestParam(name = "orderDir", defaultValue = "ASC") String orderDir) {
 				
-		List<ReviewProperty> results = ReviewProperty.findReviewPropertyEntries(start, length, orderField, orderDir);
-		return ReviewProperty.toJsonArray(results);
+		List<Reviewproperty> results = Reviewproperty.findReviewpropertyEntries(start, length, orderField, orderDir);
+		return Reviewproperty.toJsonArray(results);
 	}
 	
 	 
 	
 	/**
-	 * Updates the ReviewProperty having the given ID
-	 * @param id	ID of ReviewProperty to update
-	 * @param reviewProperty	updated ReviewProperty
-	 * @return		ID of updated ReviewProperty
+	 * Updates the Reviewproperty having the given ID
+	 * @param id	ID of Reviewproperty to update
+	 * @param reviewProperty	updated Reviewproperty
+	 * @return		ID of updated Reviewproperty
 	 */
 	@PreAuthorize("hasAuthority('admin')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
-	public String update(@PathVariable("id") long id, @RequestBody ReviewProperty reviewProperty) {
+	public String update(@PathVariable("id") long id, @RequestBody Reviewproperty reviewProperty) {
 		if (reviewProperty.getId() != id) {
 			return "ID error";
 		}
@@ -93,23 +93,23 @@ public class ReviewPropertyController {
 			return errors.toString();
 		}
 		*/
-        final ReviewProperty oldReviewProperty = ReviewProperty.findReviewProperty(reviewProperty.getId());
-        reviewProperty.setVersion(oldReviewProperty.getVersion());
-        reviewProperty.setCreated(oldReviewProperty.getCreated());
-        reviewProperty.setStatus(oldReviewProperty.getStatus());
+        final Reviewproperty oldReviewproperty = Reviewproperty.findReviewproperty(reviewProperty.getId());
+        reviewProperty.setVersion(oldReviewproperty.getVersion());
+        reviewProperty.setCreated(oldReviewproperty.getCreated());
+        reviewProperty.setStatus(oldReviewproperty.getStatus());
 		// merge and return id
 		reviewProperty.merge();
 		return reviewProperty.getId().toString();
 	}
 	
 	/**
-	 * Returns JSON representation of ReviewProperty with the given ID
-	 * @param id	ID of ReviewProperty to view 
-	 * @return		JSON of ReviewProperty
+	 * Returns JSON representation of Reviewproperty with the given ID
+	 * @param id	ID of Reviewproperty to view 
+	 * @return		JSON of Reviewproperty
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
 	public String view(@PathVariable("id") long id) {
-		ReviewProperty reviewProperty = ReviewProperty.findReviewProperty(id);
+		Reviewproperty reviewProperty = Reviewproperty.findReviewproperty(id);
 		if (reviewProperty == null) {
 			return "0";
 		}
@@ -121,6 +121,6 @@ public class ReviewPropertyController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET, produces = "application/json")
 	public String search(@RequestParam(name = "q", required = true) String q) {
-		return ReviewProperty.toJsonArrayReviewProperty(ReviewProperty.search(q));
+		return Reviewproperty.toJsonArrayReviewproperty(Reviewproperty.search(q));
 	}
 }

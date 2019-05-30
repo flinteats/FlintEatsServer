@@ -61,7 +61,7 @@ import flexjson.JSONSerializer;
 @RooJson
 @RooToString
 @Transactional
-public class ReviewProperty extends UGC {
+public class Reviewproperty extends UGC {
 
 	//review_id and id ???
 
@@ -93,7 +93,7 @@ public class ReviewProperty extends UGC {
     }
 
 	@JsonCreator
-	public static ReviewProperty factory(
+	public static Reviewproperty factory(
 			// @JsonProperty("propertyType") long startEpoch,
 			// @JsonProperty("value") long endEpoch,
 			@JsonProperty("id") long id,
@@ -105,9 +105,9 @@ public class ReviewProperty extends UGC {
 			@JsonProperty("text") String text,
 
 			@JsonProperty("tags") Set<Tag> tags) {
-		Logger logger = LoggerFactory.getLogger(ReviewProperty.class);
-		logger.debug("ReviewProperty factory. tags: {}", tags);
-		ReviewProperty reviewProperty = new ReviewProperty();
+		Logger logger = LoggerFactory.getLogger(Reviewproperty.class);
+		logger.debug("Reviewproperty factory. tags: {}", tags);
+		Reviewproperty reviewProperty = new Reviewproperty();
 		reviewProperty.setId(id);
 		reviewProperty.setCleanrating(cleanrating);
 		reviewProperty.setSelectionrating(selectionrating);
@@ -122,7 +122,7 @@ public class ReviewProperty extends UGC {
         		.exclude("logger").serialize(this);
     }
     
-    public static String toJsonArrayReviewProperty(Collection<ReviewProperty> collection) {
+    public static String toJsonArrayReviewproperty(Collection<Reviewproperty> collection) {
         return new JSONSerializer()
         		.include("class", "market.id", "market.name", 
         				"usr.id", "usr.username")
@@ -130,12 +130,12 @@ public class ReviewProperty extends UGC {
 		        .serialize(collection);
     }
 	 // pulled from Roo file due to bug [ROO-3570]
-    public static List<ReviewProperty> findReviewPropertyEntries(int firstResult, int maxResults,
+    public static List<Reviewproperty> findReviewpropertyEntries(int firstResult, int maxResults,
     		String sortFieldName, String sortOrder) {
     	if (sortFieldName == null || sortOrder == null) {
-    		return ReviewProperty.findReviewPropertyEntries(firstResult, maxResults);
+    		return Reviewproperty.findReviewpropertyEntries(firstResult, maxResults);
     	}
-        String jpaQuery = "SELECT o FROM ReviewProperty o";
+        String jpaQuery = "SELECT o FROM Reviewproperty o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)
         		|| Entity.fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
@@ -144,25 +144,25 @@ public class ReviewProperty extends UGC {
             }
         }
         if (maxResults < 0) {
-            return entityManager().createQuery(jpaQuery, ReviewProperty.class)
+            return entityManager().createQuery(jpaQuery, Reviewproperty.class)
             		.setFirstResult(firstResult).getResultList();
         }
-        return entityManager().createQuery(jpaQuery, ReviewProperty.class)
+        return entityManager().createQuery(jpaQuery, Reviewproperty.class)
         		.setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @SuppressWarnings("unchecked")
-	public static List<ReviewProperty> search(String q) {
-    	Logger logger = LoggerFactory.getLogger(ReviewProperty.class);
+	public static List<Reviewproperty> search(String q) {
+    	Logger logger = LoggerFactory.getLogger(Reviewproperty.class);
 		EntityManager em = Entity.entityManager();
 		FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(em);
 
-		logger.debug("searching ReviewPropertys for: {}", q);
+		logger.debug("searching Reviewpropertys for: {}", q);
 
 		QueryBuilder qb = fullTextEntityManager
 				.getSearchFactory()
 				.buildQueryBuilder()
-				.forEntity(ReviewProperty.class)
+				.forEntity(Reviewproperty.class)
 				.get();
 		org.apache.lucene.search.Query luceneQuery = qb
 			    .keyword()
@@ -176,14 +176,14 @@ public class ReviewProperty extends UGC {
 
 		// wrap Lucene query in a javax.persistence.Query
 		javax.persistence.Query jpaQuery =
-		    fullTextEntityManager.createFullTextQuery(luceneQuery, ReviewProperty.class);
+		    fullTextEntityManager.createFullTextQuery(luceneQuery, Reviewproperty.class);
 //		logger.debug("jpaQuery: {}", jpaQuery.toString());
 		
 
 		// execute search
 		logger.debug("results size: {}", jpaQuery.getResultList().size());
 		List<?> result = jpaQuery.getResultList();
-		return (List<ReviewProperty>)result;
+		return (List<Reviewproperty>)result;
     }
 
 }

@@ -109,10 +109,10 @@ public class ReviewProperty extends UGC {
 		logger.debug("ReviewProperty factory. tags: {}", tags);
 		ReviewProperty reviewProperty = new ReviewProperty();
 		reviewProperty.setId(id);
-		reviewProperty.setCleanRating(cleanrating);
-		reviewProperty.setSelectRating(selectionrating);
-		reviewProperty.setAccessRating(accessrating);
-		reviewProperty.setSafeRating(saferating);
+		reviewProperty.setCleanrating(cleanrating);
+		reviewProperty.setSelectrating(selectionrating);
+		reviewProperty.setAccessrating(accessrating);
+		reviewProperty.setSaferating(saferating);
 		reviewProperty.setText(text);
 		return reviewProperty;
 	}

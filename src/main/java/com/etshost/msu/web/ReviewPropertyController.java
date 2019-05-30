@@ -72,44 +72,7 @@ public class ReviewPropertyController {
 		return ReviewProperty.toJsonArray(results);
 	}
 	
-	/**
-	 * Returns JSON list of ReviewPropertys for use with DataTables
-	 * @param request Request having DataTables arguments:
-	 * 			draw, start, length, orderColumnName, ordirDir [, query]
-	 * @param response
-	 * @throws IOException
-	 */
-	@PreAuthorize("hasAuthority('admin')")	
-	@RequestMapping(value = "/datatables", method = RequestMethod.GET, produces = "application/json")
-	public void list(HttpServletRequest request, HttpServletResponse response) throws IOException {
-			    PrintWriter out = response.getWriter();
-				
-				List<String> error = new ArrayList<String>();
-			
-				int draw = 1;
-				int start = 0;
-				int length = 10;
-				String orderColumn = null;
-				String orderColumnName = null;			
-				String orderDir = "asc";
-				String query = null;
-				try {
-					draw = Integer.valueOf(request.getParameter("draw"));
-					start = Integer.valueOf(request.getParameter("start"));
-					length = Integer.valueOf(request.getParameter("length"));	
-					orderColumn = request.getParameter("order[0][column]");
-					orderColumnName = request.getParameter("columns["+orderColumn+"][name]");
-					orderDir = request.getParameter("order[0][dir]");
-					query = request.getParameter("search[value]");
-				} catch (Exception e) {
-					error.add(e.toString());
-				}
-				
-				String results = ReviewProperty.generateDataTables(draw, start, length,
-						orderColumnName, orderDir, query);
-			
-			    out.print(results);
-	}
+	 
 	
 	/**
 	 * Updates the ReviewProperty having the given ID

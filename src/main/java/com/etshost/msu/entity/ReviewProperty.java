@@ -110,7 +110,7 @@ public class ReviewProperty extends UGC {
 		ReviewProperty reviewProperty = new ReviewProperty();
 		reviewProperty.setId(id);
 		reviewProperty.setCleanrating(cleanrating);
-		reviewProperty.setSelectionrating(selectionrating);
+		reviewProperty.setSelectrating(selectionrating);
 		reviewProperty.setAccessrating(accessrating);
 		reviewProperty.setSaferating(saferating);
 		reviewProperty.setText(text);

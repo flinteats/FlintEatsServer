@@ -96,7 +96,7 @@ public class ReviewProperty extends UGC {
 	public static ReviewProperty factory(
 			// @JsonProperty("propertyType") long startEpoch,
 			// @JsonProperty("value") long endEpoch,
-			@JsonProperty("id") long id,
+			@JsonProperty("id") int id,
 			@JsonProperty("review_id") Market review_id,
 			@JsonProperty("cleanrating") int cleanrating,
 			@JsonProperty("selectionrating") int selectionrating,
